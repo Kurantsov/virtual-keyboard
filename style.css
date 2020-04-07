@@ -1,0 +1,20 @@
+.textarea {
+    width: 670px;
+    height: 200px;
+}
+
+.keys {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    margin: 5px 0 0 5px;
+}
+
+.keyboard {
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    height: 190px;
+    width: 670px;
+    padding: 5px;
+}
