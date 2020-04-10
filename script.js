@@ -200,7 +200,6 @@ function CreateButtons(array) {
     keyboard.append(key);
     KEYS.push(key.id);
     KEY.push(key);
-    // eslint-disable-next-line no-console
   }
 }
 
@@ -237,6 +236,35 @@ function active(array) {
       }
     }
   };
+
+
+  // eslint-disable-next-line func-names
+
+  document.onmouseup = function (click) {
+    const clickTarget = click.target;
+    for (let i = 0; i < KEY.length; i += 1) {
+      if (clickTarget.id === KEY[i].id) {
+        for (let j = 0; j < BUTTONS.length; j += 1) {
+          if (BUTTONS[j].code === KEY[i].id) {
+            textarea.value += BUTTONS[j].en;
+          }
+        }
+        KEY[i].className = 'keys active';
+      }
+    }
+  };
 }
+
+
+// eslint-disable-next-line func-names
+document.onmouseout = function (click) {
+  const clickTarget = click.target;
+  for (let i = 0; i < KEY.length; i += 1) {
+    if (clickTarget.id === KEY[i].id) {
+      KEY[i].className = 'keys';
+    }
+  }
+};
+
 
 active(KEYS);
