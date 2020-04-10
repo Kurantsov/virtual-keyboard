@@ -210,7 +210,7 @@ CreateButtons(BUTTONS);
 
 function active(array) {
   // eslint-disable-next-line func-names
-  document.onkeypress = function (event) {
+  document.onkeydown = function (event) {
     for (let i = 0; i < array.length; i += 1) {
       if (array[i] === event.code) {
         // eslint-disable-next-line no-console
@@ -218,6 +218,20 @@ function active(array) {
           // eslint-disable-next-line no-console
           if (array[i] === KEY[j].id) {
             KEY[j].className = 'keys active';
+          }
+        }
+      }
+    }
+  };
+  // eslint-disable-next-line func-names
+  document.onkeyup = function (event) {
+    for (let i = 0; i < array.length; i += 1) {
+      if (array[i] === event.code) {
+        // eslint-disable-next-line no-console
+        for (let j = 0; j < KEY.length; j += 1) {
+          // eslint-disable-next-line no-console
+          if (array[i] === KEY[j].id) {
+            KEY[j].className = 'keys';
           }
         }
       }

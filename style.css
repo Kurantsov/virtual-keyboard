@@ -8,17 +8,20 @@
     height: 40px;
     border: 1px solid black;
     margin: 5px 0 0 5px;
+    background-color: white;
 }
 
 .keyboard {
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
-    height: 190px;
-    width: 670px;
+    height: 195px;
+    width: 665px;
     padding: 5px;
+    background-color: darkolivegreen;
 }
 
 .active {
     background-color: orange;
+    border-radius: 15px;
 }
