@@ -178,6 +178,8 @@ document.body.append(keyboard);
 
 let lang;
 const caps = false;
+const KEYS = [];
+const KEY = [];
 
 function CreateButtons(array) {
   for (let i = 0; i < array.length; i += 1) {
@@ -196,7 +198,31 @@ function CreateButtons(array) {
       key.innerHTML = array[i].EN;
     }
     keyboard.append(key);
+    KEYS.push(key.id);
+    KEY.push(key);
+    // eslint-disable-next-line no-console
   }
 }
 
+
 CreateButtons(BUTTONS);
+
+
+function active(array) {
+  // eslint-disable-next-line func-names
+  document.onkeypress = function (event) {
+    for (let i = 0; i < array.length; i += 1) {
+      if (array[i] === event.code) {
+        // eslint-disable-next-line no-console
+        for (let j = 0; j < KEY.length; j += 1) {
+          // eslint-disable-next-line no-console
+          if (array[i] === KEY[j].id) {
+            KEY[j].className = 'keys active';
+          }
+        }
+      }
+    }
+  };
+}
+
+active(KEYS);
